@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/devops-metalflow/metalbeat/workflows/ci/badge.svg?branch=main&event=push)](https://github.com/devops-metalflow/metalbeat/actions?query=workflow%3Aci)
 [![License](https://img.shields.io/github/license/devops-metalflow/metalbeat.svg?color=brightgreen)](https://github.com/devops-metalflow/metalbeat/blob/main/LICENSE)
-[![Tag](https://img.shields.io/github/tag/devops-metalflow/metalbeat.svg?color=brightgreen)](https://github.com/devops-metalflow/metalbeat/tags)
+[![Tag](https://img.shields.io/github/tag/devops-metalflow/metalbeat.svg)](https://github.com/devops-metalflow/metalbeat/tags)
 
 
 

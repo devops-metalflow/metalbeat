@@ -14,7 +14,7 @@ builds:
     binary: metalbeat
     flags:
       - -trimpath
-    ldflags: -s -w -X github.com/devops-metalflow/metalbeat/config.Build={{.Date}} -X github.com/devops-metalflow/metalbeat/config.Version={{.Version}}
+    ldflags: -s -w
 
 changelog:
   sort: asc

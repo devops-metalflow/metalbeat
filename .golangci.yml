@@ -49,10 +49,10 @@ linters-settings:
 linters:
   disable-all: true
   enable:
+    - bodyclose
     - depguard
     - dogsled
     - errcheck
-    - exportloopref
     - funlen
     - gochecknoinits
     - goconst
@@ -62,11 +62,13 @@ linters:
     - gomnd
     - goprintffuncname
     - gosec
+    - gosimple
     - govet
     - ineffassign
     - lll
     - misspell
     - nakedret
+    - staticcheck
     - typecheck
     - unconvert
     - whitespace
@@ -79,9 +81,10 @@ linters:
   # - godox
   # - goimports
   # - golint
-  # - interfacer
   # - maligned
   # - prealloc
+  # - rowserrcheck
+  # - structcheck
   # - stylecheck
   # - unparam
   # - unused
@@ -89,5 +92,4 @@ linters:
 
 run:
   skip-dirs:
-    - external
     - script

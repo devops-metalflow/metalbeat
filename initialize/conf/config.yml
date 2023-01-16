@@ -1,0 +1,77 @@
+# 系统基本配置
+system:
+  # 类别
+  kind: agent
+  # 元信息
+  metadata: metalbeat
+
+
+# consul配置
+consul:
+  # consul服务地址
+  address: 127.0.0.1
+  # consul端口
+  port: 8500
+
+
+# shell命令配置
+shell:
+  # shell命令暴露的api端口与服务注册的port共用，这样可以避免少开一个端口
+  # 执行命令的服务网址后缀
+  shell-suffix: shell
+  # 执行命令持续最多时间
+  timeout: 20
+  # 是否初始化时执行一些命令。设为false，将不再运行下方命令，这样可移除硬编码
+  init-shell: false
+  # 上方init-shell为true时才会运行下方的初始化shell命令
+  init-commands:
+    # 如有多个需要执行的任务，可以按照如下方式编写配置
+    - name: metalmetrics
+      # 上方的name和下方的annotations仅用于说明运行命令的目的
+      annotations: "download metalmetrics and start metalmetrics"
+      # 运行的命令
+      commands:
+        - curl -k -uuser:123456 -L https://repo/artifactory/shell/devops-metalflow/metalmetrics/metalmetrics.sh -o metalmetrics.sh; chmod +x metalmetrics.sh
+        - ./metalmetrics.sh reload
+        - ./metalmetrics.sh stop
+        - ./metalmetrics.sh start
+    - name: metaltask
+      annotations: "download metaltask and start metaltask"
+      commands:
+        -curl -k -uuser:123456 -L https://repo/artifactory/shell/devops-metalflow/metaltask/metaltask.sh -o metaltask.sh; chmod +x metaltask.sh
+        - ./metaltask.sh reload
+        - ./metaltask.sh stop
+        - ./metaltask.sh start
+
+# 注册的服务配置
+service:
+  # 服务名称
+  name: metalbeat
+  # 服务标签
+  tags: metalbeat,agent
+  # 服务端口,也是健康检查端口和接收命令的端口
+  port: 19090
+  # 健康检查的服务网址后缀
+  check-suffix: health
+  # 服务的过期时间
+  check-timeout: 5
+  # 每隔多少秒检查一次
+  check-interval: 5
+  # 服务不可用后多少秒删除服务
+  deregister-after: 43200
+
+
+# 日志配置
+logs:
+  # 日志等级(-1:Debug, 0:Info, -1<=level<=5, 参照zap.level源码)
+  level: -1
+  # 日志路径
+  path: logs
+  # 文件最大大小, M
+  max-size: 50
+  # 备份数
+  max-backups: 100
+  # 存放时间, 天
+  max-age: 30
+  # 是否压缩
+  compress: false

@@ -8,23 +8,23 @@
 
 
 
-> English | [中文](README_zh.md)
+> [English](README.md) | 中文
 
 
 
-## Introduction
+## 介绍
 
-*metalbeat* is the agent of [metalflow](https://github.com/devops-metalflow/metalflow) written in Go.
+*metalbeat* 作为 [metalflow](https://github.com/devops-metalflow/metalflow) 服务代理，用于向服务注册中心 `consul` 进行服务注册。
 
 
 
-## Prerequisites
+## 前提
 
 - Go >= 1.18.0
 
 
 
-## Run
+## 运行
 
 ```bash
 make build
@@ -33,7 +33,7 @@ make build
 
 
 
-## Usage
+## 用法
 
 ```
 usage: metalbeat [<flags>]
@@ -48,21 +48,21 @@ Flags:
 
 
 
-## Settings
+## 配置
 
-*metalbeat* parameters can be set in the directory [conf](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf).
+*metalbeat* 相关配置参数见 [conf](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf).
 
-An example of configuration in [config.yml](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf/config.yml).
-
-
-
-## License
-
-Project License can be found [here](LICENSE).
+配置文件示例见 [config.yml](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf/config.yml).
 
 
 
-## Reference
+## 协议
+
+本项目协议声明见 [here](LICENSE).
+
+
+
+## 引用
 
 - [consul](https://github.com/hashicorp/consul): A distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure.
 - [lumberjack](https://github.com/natefinch/lumberjack):  A log rolling package for Go.

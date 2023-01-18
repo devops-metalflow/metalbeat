@@ -50,19 +50,19 @@ Flags:
 
 ## 配置
 
-*metalbeat* 相关配置参数见 [conf](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf).
+*metalbeat* 相关配置参数见 [conf](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf)。
 
-配置文件示例见 [config.yml](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf/config.yml).
+配置文件示例见 [config.yml](https://github.com/devops-metalflow/metalbeat/blob/main/initialize/conf/config.yml)。
 
 
 
 ## 协议
 
-本项目协议声明见 [here](LICENSE).
+本项目协议声明见 [here](LICENSE)。
 
 
 
-## 引用
+## 感谢
 
 - [consul](https://github.com/hashicorp/consul): A distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure.
 - [lumberjack](https://github.com/natefinch/lumberjack):  A log rolling package for Go.

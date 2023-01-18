@@ -28,7 +28,7 @@
 
 ```bash
 make build
-./metalbeat --config-file=config.yml
+./bin/metalbeat --config-file=config.yml
 ```
 
 

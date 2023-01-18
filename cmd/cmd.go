@@ -19,7 +19,7 @@ const version = "1.3.0"
 
 var (
 	app        = kingpin.New("metalbeat", "MetalBeat").Version(version)
-	configFile = app.Flag("config-file", "Configfile (.yml)").String()
+	configFile = app.Flag("config-file", "Config file (.yml)").String()
 )
 
 func Run() {

@@ -43,7 +43,7 @@ MetalBeat
 Flags:
   --help                     Show context-sensitive help (also try --help-long and --help-man).
   --version                  Show application version.
-  --config-file=CONFIG-FILE  Configfile (.yml)
+  --config-file=CONFIG-FILE  Config file (.yml)
 ```
 
 

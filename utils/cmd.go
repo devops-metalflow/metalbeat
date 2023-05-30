@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"path"
+	"runtime"
 	"strings"
 )
 
@@ -23,7 +24,15 @@ func ExcShell(input string) (ret string, err error) {
 		return
 	}
 
-	cmd := exec.Command("/bin/sh", "-c", input)
+	mapCmd := map[string]*exec.Cmd{
+		"windows": exec.Command("cmd", "/C", input),
+		"linux":   exec.Command("/bin/sh", "-c", input),
+	}
+	cmd, ok := mapCmd[runtime.GOOS]
+	if !ok {
+		err = fmt.Errorf("该系统%s不支持执行命令", runtime.GOOS)
+		return
+	}
 	data, err := cmd.CombinedOutput()
 	ret = string(data)
 	return

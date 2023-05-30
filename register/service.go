@@ -8,6 +8,7 @@ import (
 	"metalbeat/global"
 	"metalbeat/utils"
 	"net/http"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -39,7 +40,20 @@ func Service() {
 		Interval:                       fmt.Sprintf("%ds", global.Conf.Service.CheckInterval),
 		DeregisterCriticalServiceAfter: fmt.Sprintf("%ds", global.Conf.Service.DeregisterAfter),
 	}
-
+	// 将运行机器的os信息添加到consul的kv配置中心
+	// get os info.
+	os := runtime.GOOS
+	// Get a handle to the KV API.
+	kv := global.Consul.KV()
+	// put os info KV pair.
+	p := &consulapi.KVPair{
+		Key:   localIp.String(),
+		Value: []byte(os),
+	}
+	_, err = kv.Put(p, nil)
+	if err != nil {
+		panic(err)
+	}
 	// 注册
 	if err := global.Consul.Agent().ServiceRegister(registration); err != nil {
 		global.Log.Fatal("注册服务失败：", err)
